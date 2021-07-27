@@ -1,8 +1,9 @@
 import sys
 import os
-from sawa.enum.effected import Effected
-from sawa.enum.token_error import TokenError
-import sawa.util as util
+from arpy.enum.effected import Effected
+# import arpy.util as util
+from arpy.enum.token_error import TokenError
+
 
 class Process:
 
@@ -27,8 +28,9 @@ class Process:
         self.all_symbols = self.operators + self.symbols + self.brackets
 
     def report_error(self, error: TokenError) -> None:
-        error_str = error.value + " " + " ꦤꦁꦧꦫꦶꦱ꧀ꦤꦺꦴꦩꦼꦂ " \
-                    + util.replace_en_num(self.line_no) + ":" + util.replace_en_num(self.char_no)
+        # error_str = error.value + " " + " ꦤꦁꦧꦫꦶꦱ꧀ꦤꦺꦴꦩꦼꦂ " \
+        #             + util.replace_en_num(self.line_no) + ":" + util.replace_en_num(self.char_no)
+        error_str = error.value + " " + " at " + str(self.line_no) + ":" + str(self.char_no)
         error_str = self.line + '\n' + error_str
         sys.exit(error_str)
 
@@ -143,11 +145,11 @@ class Process:
                     self.buffer += character
                 else:
                     py_line += character
-        #print(py_line)
+        # print(py_line)
         return py_line
 
     def process(self):
-        pth = os.path.dirname(os.path.abspath(self.file.name))        
+        pth = os.path.dirname(os.path.abspath(self.file.name))
         py_content = ""  # store all the processed line or py_line
         # line_no = 0  # store the characters position
         for line in self.file:
@@ -166,22 +168,22 @@ class Process:
             # Finally appending line to the content of the file
             curline = self.process_line()
             if 'getcwd' in curline:
-                curline = curline.replace('getcwd()',pth)
-                    
+                curline = curline.replace('getcwd()', pth)
+
             py_content += curline
             if '__file__' in curline:
                 if pth:
                     prt = curline.split('=')
-                    nextline = prt[0]+'='
+                    nextline = prt[0] + '='
                     if ',' in prt[1]:
                         nxt = []
                         for prr in prt[1].split(','):
                             nxr = prr.split('.')[0]
-                            nll = nxr+'.path.join('+prt[0].strip()+', "'+pth+'")'
+                            nll = nxr + '.path.join(' + prt[0].strip() + ', "' + pth + '")'
                             nxt.append(nll)
-                        nextline += ",".join(nxt)+'\n'
+                        nextline += ",".join(nxt) + '\n'
                     else:
                         nxr = prt[1].split('.')[0]
-                        nextline += nxr+'.path.join('+prt[0].strip()+', "'+pth+'")'+'\n'
+                        nextline += nxr + '.path.join(' + prt[0].strip() + ', "' + pth + '")' + '\n'
                     py_content += nextline
         return py_content

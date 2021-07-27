@@ -168,3 +168,10 @@ static
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# IDEs
+.idea/
+
+# Others
+/DEMO/*
+!/DEMO/*.بايثون

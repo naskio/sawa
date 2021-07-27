@@ -1,4 +1,4 @@
-![SAWA](icons/sawa_logo.png "Sawa")
+[SAWA](icons/sawa_logo.png "Sawa")
 # ꦱꦮ
 
 
@@ -114,12 +114,12 @@ and you're good to go.
 
 ## Running
 
-- Create a new file with name `ꦲꦭꦮ.ꦱꦮ` and open in any editor.
+- Create a new file with name `اسم.بايثون` and open in any editor.
 
 - Write this in the file
 
 ```vim
-ꦥꦿꦶꦤ꧀("ꦱꦸꦒꦼꦁꦱꦶꦪꦁ")
+اطبع("مرحبا بالعالم")
 ```
 
 - Save it
@@ -129,13 +129,13 @@ and you're good to go.
 - Run this command
 
 ```bash
-ꦱꦮ ꦲꦭꦮ.ꦱꦮ
+بايثون اسم.بايثون
 ```
 
 - It will print 
 
 ```bash
-ꦱꦸꦒꦼꦁꦱꦶꦪꦁ
+مرحبا بالعالم
 ```
 
 ## Contributing

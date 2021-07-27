@@ -2,8 +2,8 @@
 
 # Variable
 
-COMMAND=sawa
-COMMAND_JW=ꦱꦮ
+COMMAND=arpy
+COMMAND_JW=بايثون
 
 # Creating a link to local bin so that we do not required to add class path
 cp $PWD/bin/cmd.sh bin/${COMMAND}

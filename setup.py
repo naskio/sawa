@@ -4,11 +4,11 @@ import io
 import os
 
 # Package meta-data
-NAME = 'sawa'
-DESCRIPTION = 'an open source programming language, an interpreter to be precise, where you can write Python code using Javanese character.'
-URL = 'https://github.com/lantip/sawa'
-EMAIL = 'lantip@underpaidworkers.org'
-AUTHOR = 'Lantip'
+NAME = 'arpy'
+DESCRIPTION = 'an open source programming language, an interpreter to be precise, where you can write Python code using Arabic character.'
+URL = 'https://github.com/naskio/arpy'
+EMAIL = 'hello@nask.io'
+AUTHOR = 'Nask'
 REQUIRES_PYTHON = '>=3.6.0'
 VERSION = None
 
@@ -35,10 +35,10 @@ setup(
     author_email=EMAIL,
     python_requires=REQUIRES_PYTHON,
     url=URL,
-    packages=['sawa', 'sawa.enum'],
+    packages=['arpy', 'arpy.enum'],
     entry_points={
         'console_scripts': [
-            'ꦱꦮ = sawa.cli:run_as_command',
+            'ꦱꦮ = arpy.cli:run_as_command',
         ],
     },
     license='MIT',

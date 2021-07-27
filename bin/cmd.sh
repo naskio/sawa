@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PROJECT=sawa
+PROJECT=arpy
 
 compile_n_run() {
     # Checking if python 3 is installed
@@ -35,7 +35,7 @@ compile_n_run() {
             fi
         fi
     else
-        echo "Python3 ꦢꦸꦫꦸꦁꦢꦶꦲꦤ"
+        echo "Python3 not installed"
     fi
 }
 
@@ -46,12 +46,12 @@ if [ "$#" -gt 1 ]; then
         compile_n_run "${names[0]}" "${names[1]}" ${@:2}
     else
         # Checking file extensions and running code
-        if [ -f "$1.ꦱꦮ" ];then
-            compile_n_run "$1" "ꦱꦮ" ${@:2}
-        elif [ -f "$1.sawa" ];then
-            compile_n_run "$1" "sawa" ${@:2}
+        if [ -f "$1.بايثون" ];then
+            compile_n_run "$1" "بايثون" ${@:2}
+        elif [ -f "$1.arpy" ];then
+            compile_n_run "$1" "arpy" ${@:2}
         else
-            echo "ꦥ꦳ꦲꦶꦭ꧀ꦲꦺꦴꦫꦥꦭꦶꦢ꧀ $1" ${@:2}
+            echo "extension $1" ${@:2}
         fi
     fi
 
@@ -62,14 +62,14 @@ elif [ "$#" -gt 0 ]; then
         compile_n_run "${names[0]}" "${names[1]}"
     else
         # Checking file extensions and running code
-        if [ -f "$1.ꦱꦮ" ];then
-            compile_n_run "$1" "ꦱꦮ"
-        elif [ -f "$1.sawa" ];then
-            compile_n_run "$1" "sawa"
+        if [ -f "$1.بايثون" ];then
+            compile_n_run "$1" "بايثون"
+        elif [ -f "$1.arpy" ];then
+            compile_n_run "$1" "arpy"
         else
-            echo "ꦥ꦳ꦲꦶꦭ꧀ꦲꦺꦴꦫꦥꦭꦶꦢ꧀ $1"
+            echo "extension $1"
         fi
     fi
 else
-    echo "ꦏꦼꦠꦶꦏ꧀ꦗꦼꦤꦼꦁꦥ꦳ꦲꦶꦭ꧀ "
+    echo "No file found"
 fi
